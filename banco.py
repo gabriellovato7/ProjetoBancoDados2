@@ -39,17 +39,35 @@ try:
         sql = "INSERT INTO Album (titulo, data_lancamento, artista_id) VALUES (%s, %s, %s)"
         cursor.execute(sql, (titulo, data_lancamento, artista_id))
         conn.commit()
+
+    def inserir_musica():
+        titulo = input("Digite o título do música: ")
+        duracao = input("Digite a duração da música: ")
+        album_id = input("Digite o id do álbum: ")
+        artista_id = input("Digite o id do artista: ")
+
+        album_id = None if album_id.strip() == "" else int(album_id)
+
+        if not artista_id:
+            print("Erro: artista_id é obrigatório.")
+            return
         
+        sql = "INSERT INTO Musica (titulo, duracao, album_id, artista_id) VALUES (%s, %s, %s, %s)"
+        cursor.execute(sql, (titulo, duracao, album_id, artista_id))
+        conn.commit()
 
     while True:
         print("\n-----MENU-----")
         print("1 - Inserir Artista")
-        print("2 - Inserir Album")
+        print("2 - Inserir Álbum")
+        print("3 - Inserir Música")
         opcao = input("Digite a opção que deseja inserir: ")
         if(opcao == "1"):
             inserir_artista()
         elif(opcao == "2"):
             inserir_album()
+        elif(opcao == "3"):
+            inserir_musica()
         elif opcao == "0":
             break
         else:
