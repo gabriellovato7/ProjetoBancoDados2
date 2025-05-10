@@ -73,12 +73,20 @@ try:
         cursor.execute(sql, (nome, email, data_nascimento))
         conn.commit()
 
+    def inserir_playlist():
+        nome = input("Digite o nome da playlist: ")
+
+        sql = "INSERT INTO Playlist (nome) VALUES (%s)"
+        cursor.execute(sql, (nome,))
+        conn.commit()
+
     while True:
         print("\n-----MENU-----")
         print("1 - Inserir Artista")
         print("2 - Inserir Álbum")
         print("3 - Inserir Música")
         print("4 - Inserir Usuário")
+        print("5 - Inserir Playlist")
         opcao = input("Digite a opção que deseja inserir: ")
         if(opcao == "1"):
             inserir_artista()
@@ -88,6 +96,8 @@ try:
             inserir_musica()
         elif(opcao == "4"):
             inserir_usuario()
+        elif(opcao == "5"):
+            inserir_playlist()
         elif opcao == "0":
             break
         else:
