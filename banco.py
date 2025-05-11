@@ -111,6 +111,16 @@ try:
         cursor.execute(sql, (musica_id, genero_id))
         conn.commit()
 
+    def inserir_avaliacao():
+        usuario_id = input("Digite o ID do usuário: ")
+        musica_id = input("Digite o ID da música: ")
+        nota = input("Digite a nota da música(1 a 5): ")
+        comentario = input("Digite o comentário: ")
+
+        sql = "INSERT INTO avaliacao (usuario_id, musica_id, nota, comentario) VALUES (%s, %s, %s, %s)"
+        cursor.execute(sql, (usuario_id, musica_id, nota, comentario))
+        conn.commit()
+
     while True:
         print("\n-----MENU-----")
         print("1 - Inserir Artista")
@@ -122,6 +132,7 @@ try:
         print("7 - Inserir Música na Playlist")
         print("8 - Inserir Gênero")
         print("9 - Inserir Gênero na Música")
+        print("10 - Inserir Avaliação")
         opcao = input("Digite a opção que deseja inserir: ")
         if(opcao == "1"):
             inserir_artista()
@@ -141,6 +152,8 @@ try:
             inserir_genero()
         elif(opcao == "9"):
             inserir_musica_genero()
+        elif(opcao == "10"):
+            inserir_avaliacao()
         elif opcao == "0":
             print("Saindo do menu")
             break
