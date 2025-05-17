@@ -23,6 +23,11 @@ try:
         pais = input("Digite o país do artista: ")
         generoMusical = input("Digite o genero musical do artista: ")
 
+        if not nome:
+            print("Erro: nome é obrigatório.")
+            return
+        
+
         sql = "INSERT INTO Artista (nome, pais, genero_musical_principal) VALUES (%s, %s, %s)"
         cursor.execute(sql, (nome, pais, generoMusical))
         conn.commit()
@@ -31,6 +36,10 @@ try:
         titulo = input("Digite o título do álbum: ")
         data_lancamento = input("Digite a data de lançamento (YYYY-MM-DD): ")
         artista_id = input("Digite o ID do artista: ")
+
+        if not titulo:
+            print("Erro: titulo é obrigatório.")
+            return
 
         if not artista_id:
             print("Erro: artista_id é obrigatório.")
@@ -45,6 +54,10 @@ try:
         duracao = input("Digite a duração da música: ")
         album_id = input("Digite o id do álbum: ")
         artista_id = input("Digite o id do artista: ")
+
+        if not titulo:
+            print("Erro: titulo é obrigatório.")
+            return
 
         album_id = None if album_id.strip() == "" else int(album_id)
 
@@ -83,6 +96,14 @@ try:
     def inserir_usuario_playlist():
         usuario_id = input("Digite o ID do usuário: ")
         playlist_id = input("Digite o ID da playlist: ")
+
+        if not usuario_id:
+            print("Erro: usuario id é obrigatório.")
+            return
+        
+        if not playlist_id:
+            print("Erro: playlist id é obrigatório.")
+            return
         
         sql = "INSERT INTO usuario_playlist (usuario_id, playlist_id) VALUES (%s, %s)"
         cursor.execute(sql, (usuario_id, playlist_id))
@@ -91,6 +112,14 @@ try:
     def inserir_playlist_musica():
         playlist_id = input("Digite o ID da playlist: ")
         musica_id = input("Digite o ID da música: ")
+
+        if not musica_id:
+            print("Erro: musica id é obrigatório.")
+            return
+        
+        if not playlist_id:
+            print("Erro: playlist id é obrigatório.")
+            return
 
         sql = "INSERT INTO playlist_musica (playlist_id, musica_id) VALUES (%s, %s)"
         cursor.execute(sql, (playlist_id, musica_id))
@@ -106,6 +135,14 @@ try:
     def inserir_musica_genero():
         musica_id = input("Digite o ID da música: ")
         genero_id = input("Digite o ID do gênero: ")
+
+        if not musica_id:
+            print("Erro: musica id é obrigatório.")
+            return
+        
+        if not genero_id:
+            print("Erro: genero id é obrigatório.")
+            return
         
         sql = "INSERT INTO musica_genero (musica_id, genero_id) VALUES (%s, %s)"
         cursor.execute(sql, (musica_id, genero_id))
