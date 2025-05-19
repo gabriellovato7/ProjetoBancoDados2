@@ -64,3 +64,13 @@ CREATE TABLE Playlist_Musica (
     musica_id INTEGER REFERENCES Musica(id) ON DELETE CASCADE,
     PRIMARY KEY (playlist_id, musica_id)
 );
+
+-- Avaliação
+CREATE TABLE Avaliacao (
+    id SERIAL PRIMARY KEY,
+    usuario_id INTEGER REFERENCES Usuario(id),
+    musica_id INTEGER REFERENCES Musica(id),
+    nota INTEGER CHECK (nota BETWEEN 1 AND 5),
+    comentario TEXT,
+    data_avaliacao TIMESTAMP DEFAULT now()
+);
