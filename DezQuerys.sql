@@ -69,3 +69,11 @@ FROM Musica m
 JOIN Playlist_Musica pm ON m.id = pm.musica_id
 GROUP BY m.id, m.titulo
 ORDER BY total_playlists DESC;
+
+--10.  Música com mais avaliações 5 estrelas
+SELECT m.titulo, COUNT(*) AS avaliacoes_5_estrelas
+FROM Musica m
+JOIN Avaliacao av ON m.id = av.musica_id
+WHERE av.nota = 5
+GROUP BY m.id, m.titulo
+ORDER BY avaliacoes_5_estrelas DESC
