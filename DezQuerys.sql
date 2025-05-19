@@ -43,3 +43,14 @@ SELECT pais, COUNT(*) AS total_artistas
 FROM Artista
 GROUP BY pais
 ORDER BY total_artistas DESC;
+
+--7. Gênero musical mais avaliado (por número de avaliações)
+SELECT 
+  g.nome AS genero,
+  COUNT(av.id) AS total_avaliacoes
+FROM Genero g
+JOIN Musica_Genero mg ON g.id = mg.genero_id
+JOIN Musica m ON mg.musica_id = m.id
+JOIN Avaliacao av ON m.id = av.musica_id
+GROUP BY g.id, g.nome
+ORDER BY total_avaliacoes DESC;
