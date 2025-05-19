@@ -14,3 +14,16 @@ CREATE TABLE Artista (
     genero_musical_principal VARCHAR(50)
 );
 
+-- Gênero
+CREATE TABLE Genero (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(50) NOT NULL
+);
+
+-- Álbum
+CREATE TABLE Album (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    data_lancamento DATE,
+    artista_id INTEGER REFERENCES Artista(id) NOT NULL
+);
