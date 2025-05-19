@@ -36,3 +36,17 @@ CREATE TABLE Musica (
     album_id INTEGER REFERENCES Album(id),
     artista_id INTEGER REFERENCES Artista(id) NOT NULL
 );
+
+-- Música_Gênero
+CREATE TABLE Musica_Genero (
+    musica_id INTEGER REFERENCES Musica(id) ON DELETE CASCADE,
+    genero_id INTEGER REFERENCES Genero(id) ON DELETE CASCADE,
+    PRIMARY KEY (musica_id, genero_id)
+);
+
+-- Playlist
+CREATE TABLE Playlist (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    data_criacao TIMESTAMP DEFAULT now()
+);
