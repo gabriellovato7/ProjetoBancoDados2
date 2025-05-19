@@ -22,3 +22,17 @@ FROM Artista a
 LEFT JOIN Musica m ON a.id = m.artista_id
 GROUP BY a.id, a.nome
 ORDER BY total_musicas DESC
+
+--4. Playlists com mais músicas
+SELECT p.nome AS playlist, COUNT(pm.musica_id) AS total_musicas
+FROM Playlist p
+JOIN Playlist_Musica pm ON p.id = pm.playlist_id
+GROUP BY p.id, p.nome
+ORDER BY total_musicas DESC
+
+
+--5. Álbuns mais antigos (top 5)
+SELECT titulo, data_lancamento
+FROM Album
+ORDER BY data_lancamento
+LIMIT 5;
