@@ -50,3 +50,17 @@ CREATE TABLE Playlist (
     nome VARCHAR(100) NOT NULL,
     data_criacao TIMESTAMP DEFAULT now()
 );
+
+-- Relacionamento entre usuários e playlists (playlist compartilhada)
+CREATE TABLE Usuario_Playlist (
+    usuario_id INTEGER REFERENCES Usuario(id) ON DELETE CASCADE,
+    playlist_id INTEGER REFERENCES Playlist(id) ON DELETE CASCADE,
+    PRIMARY KEY (usuario_id, playlist_id)
+);
+
+-- Playlist_Musica (relacionamento N:M com ordem)
+CREATE TABLE Playlist_Musica (
+    playlist_id INTEGER REFERENCES Playlist(id) ON DELETE CASCADE,
+    musica_id INTEGER REFERENCES Musica(id) ON DELETE CASCADE,
+    PRIMARY KEY (playlist_id, musica_id)
+);
