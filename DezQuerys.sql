@@ -54,3 +54,18 @@ JOIN Musica m ON mg.musica_id = m.id
 JOIN Avaliacao av ON m.id = av.musica_id
 GROUP BY g.id, g.nome
 ORDER BY total_avaliacoes DESC;
+
+--8. Gêneros mais utilizados em músicas
+SELECT g.nome AS genero, COUNT(*) AS total_musicas
+FROM Genero g
+JOIN Musica_Genero mg ON g.id = mg.genero_id
+GROUP BY g.id, g.nome
+ORDER BY total_musicas DESC;
+
+
+--9. Músicas que aparecem em mais playlists
+SELECT m.titulo, COUNT(pm.playlist_id) AS total_playlists
+FROM Musica m
+JOIN Playlist_Musica pm ON m.id = pm.musica_id
+GROUP BY m.id, m.titulo
+ORDER BY total_playlists DESC;
