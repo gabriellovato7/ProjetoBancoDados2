@@ -27,3 +27,12 @@ CREATE TABLE Album (
     data_lancamento DATE,
     artista_id INTEGER REFERENCES Artista(id) NOT NULL
 );
+
+-- Música com artista_id
+CREATE TABLE Musica (
+    id SERIAL PRIMARY KEY,
+    titulo VARCHAR(100) NOT NULL,
+    duracao VARCHAR(20), -- duração em segundos
+    album_id INTEGER REFERENCES Album(id),
+    artista_id INTEGER REFERENCES Artista(id) NOT NULL
+);
