@@ -36,3 +36,10 @@ SELECT titulo, data_lancamento
 FROM Album
 ORDER BY data_lancamento
 LIMIT 5;
+
+
+--6. Quantidade de artistas por país
+SELECT pais, COUNT(*) AS total_artistas
+FROM Artista
+GROUP BY pais
+ORDER BY total_artistas DESC;
