@@ -119,6 +119,6 @@ erDiagram
 
 ```
 
-## Diagrama Entidade Relacional(ER)
+## Diagrama Modelo Relacional(MR)
 ![image](https://github.com/user-attachments/assets/94cf888e-8674-43df-a88e-85fec9bbe7bd)
 
