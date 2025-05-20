@@ -118,3 +118,7 @@ erDiagram
     }
 
 ```
+
+## Diagrama Entidade Relacional(ER)
+![image](https://github.com/user-attachments/assets/94cf888e-8674-43df-a88e-85fec9bbe7bd)
+
