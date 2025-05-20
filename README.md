@@ -35,6 +35,7 @@ Este projeto tem como objetivo criar um sistema de música simples estilo spotif
     password = "sua_senha"
     port = 5432
 
+Após isso, copiar o código do arquivo banco.py e executar(Conforme o GitHub). Rodando o código irá gerar um menu interativo, que por vez, na primeira vez que for inserir os dados, se seguir a numeração do menu, não terá nenhum problema. Após ter feito todas as inserções necessárias, pode inserir conforme quiser.
 
 # Diagrama Modelo Entidade Relacionamento(MER)
 
@@ -54,64 +55,64 @@ erDiagram
     Artista ||--o{ Musica : interpreta
 
     Usuario {
-        int id PK
+        int id 
         varchar nome
         varchar email
         date data_nascimento
     }
 
     Artista {
-        int id PK
+        int id 
         varchar nome
         varchar pais
         varchar genero_musical_principal
     }
 
     Genero {
-        int id PK
+        int id 
         varchar nome
     }
 
     Album {
-        int id PK
+        int id 
         varchar titulo
         date data_lancamento
-        int artista_id FK
+        int artista_id 
     }
 
     Musica {
-        int id PK
+        int id 
         varchar titulo
         varchar duracao
-        int album_id FK
-        int artista_id FK
+        int album_id 
+        int artista_id 
     }
 
     Musica_Genero {
-        int musica_id PK, FK
-        int genero_id PK, FK
+        int musica_id 
+        int genero_id 
     }
 
     Playlist {
-        int id PK
+        int id 
         varchar nome
         timestamp data_criacao
     }
 
     Usuario_Playlist {
-        int usuario_id PK, FK
-        int playlist_id PK, FK
+        int usuario_id
+        int playlist_id 
     }
 
     Playlist_Musica {
-        int playlist_id PK, FK
-        int musica_id PK, FK
+        int playlist_id 
+        int musica_id 
     }
 
     Avaliacao {
-        int id PK
-        int usuario_id FK
-        int musica_id FK
+        int id 
+        int usuario_id 
+        int musica_id 
         int nota
         text comentario
         timestamp data_avaliacao
