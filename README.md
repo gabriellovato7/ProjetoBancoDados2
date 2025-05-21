@@ -121,5 +121,6 @@ erDiagram
 ```
 
 ## Diagrama Modelo Relacional(MR)
-![image](https://github.com/user-attachments/assets/94cf888e-8674-43df-a88e-85fec9bbe7bd)
+![image](https://github.com/user-attachments/assets/87c86be0-a468-4f90-8675-7499c3561a7f)
+
 
