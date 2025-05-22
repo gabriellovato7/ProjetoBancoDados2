@@ -31,6 +31,8 @@ try:
         sql = "INSERT INTO Artista (nome, pais, genero_musical_principal) VALUES (%s, %s, %s)"
         cursor.execute(sql, (nome, pais, generoMusical))
         conn.commit()
+        print()
+        print("inserido com sucesso")
     
     def inserir_album():
         titulo = input("Digite o título do álbum: ")
@@ -48,11 +50,13 @@ try:
         sql = "INSERT INTO Album (titulo, data_lancamento, artista_id) VALUES (%s, %s, %s)"
         cursor.execute(sql, (titulo, data_lancamento, artista_id))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_musica():
         titulo = input("Digite o título do música: ")
         duracao = input("Digite a duração da música: ")
-        album_id = input("Digite o id do álbum: ")
+        album_id = input("Digite o id do álbum (se quiser): ")
         artista_id = input("Digite o id do artista: ")
 
         if not titulo:
@@ -68,6 +72,8 @@ try:
         sql = "INSERT INTO Musica (titulo, duracao, album_id, artista_id) VALUES (%s, %s, %s, %s)"
         cursor.execute(sql, (titulo, duracao, album_id, artista_id))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_usuario():
         nome = input("Digite o nome do usuário: ").strip()
@@ -85,6 +91,8 @@ try:
         sql = "INSERT INTO Usuario (nome, email, data_nascimento) VALUES (%s, %s, %s)"
         cursor.execute(sql, (nome, email, data_nascimento))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_playlist():
         nome = input("Digite o nome da playlist: ")
@@ -92,6 +100,8 @@ try:
         sql = "INSERT INTO Playlist (nome) VALUES (%s)"
         cursor.execute(sql, (nome,))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_usuario_playlist():
         usuario_id = input("Digite o ID do usuário: ")
@@ -108,6 +118,8 @@ try:
         sql = "INSERT INTO usuario_playlist (usuario_id, playlist_id) VALUES (%s, %s)"
         cursor.execute(sql, (usuario_id, playlist_id))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_playlist_musica():
         playlist_id = input("Digite o ID da playlist: ")
@@ -124,6 +136,8 @@ try:
         sql = "INSERT INTO playlist_musica (playlist_id, musica_id) VALUES (%s, %s)"
         cursor.execute(sql, (playlist_id, musica_id))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_genero():
         nome = input("Digite o nome do gênero: ")
@@ -131,6 +145,8 @@ try:
         sql = "INSERT INTO genero (nome) VALUES (%s)"
         cursor.execute(sql, (nome,))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_musica_genero():
         musica_id = input("Digite o ID da música: ")
@@ -147,16 +163,20 @@ try:
         sql = "INSERT INTO musica_genero (musica_id, genero_id) VALUES (%s, %s)"
         cursor.execute(sql, (musica_id, genero_id))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     def inserir_avaliacao():
         usuario_id = input("Digite o ID do usuário: ")
         musica_id = input("Digite o ID da música: ")
         nota = input("Digite a nota da música(1 a 5): ")
-        comentario = input("Digite o comentário: ")
+        comentario = input("Digite o comentário (se quiser): ")
 
         sql = "INSERT INTO avaliacao (usuario_id, musica_id, nota, comentario) VALUES (%s, %s, %s, %s)"
         cursor.execute(sql, (usuario_id, musica_id, nota, comentario))
         conn.commit()
+        print()
+        print("inserido com sucesso")
 
     while True:
         print("\n-----MENU-----")
@@ -170,6 +190,7 @@ try:
         print("8 - Inserir Gênero")
         print("9 - Inserir Gênero na Música")
         print("10 - Inserir Avaliação")
+        print("0 - Sair")
         opcao = input("Digite a opção que deseja inserir: ")
         if(opcao == "1"):
             inserir_artista()
